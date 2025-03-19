@@ -1,4 +1,4 @@
-// Dataset of Questions Categorized
+
 const questionsDataset = {
     ai: [
         "What is AI?",
@@ -26,17 +26,17 @@ const questionsDataset = {
     ],
 };
 
-// Store previously asked questions
+
 let previousQuestions = [];
 let selectedQuestion = "";
 
-// Initialize SpeechRecognition for Question
+
 const recognitionQuestion = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 recognitionQuestion.lang = 'en-US';
 recognitionQuestion.interimResults = false;
 recognitionQuestion.maxAlternatives = 1;
 
-// Initialize SpeechRecognition for Answer
+
 const recognitionAnswer = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 recognitionAnswer.lang = 'en-US';
 recognitionAnswer.interimResults = false;
@@ -74,7 +74,7 @@ recognitionAnswer.onresult = function (event) {
     document.getElementById("userAnswer").value = transcript;
 };
 
-// Function to start/stop speech recognition for asking a question
+
 function toggleQuestionVoiceInput() {
     if (recognitionQuestion) {
         if (recognitionQuestion.speechRecognizer) {
@@ -87,7 +87,7 @@ function toggleQuestionVoiceInput() {
     }
 }
 
-// Function to start/stop speech recognition for answering
+
 function toggleAnswerVoiceInput() {
     if (recognitionAnswer) {
         if (recognitionAnswer.speechRecognizer) {
@@ -100,7 +100,7 @@ function toggleAnswerVoiceInput() {
     }
 }
 
-// Function to go back to the category selection view
+
 function goBack() {
     document.getElementById("questionsList").classList.add("hidden");
     document.getElementById("selectedQuestionSection").classList.add("hidden");
@@ -110,7 +110,7 @@ function goBack() {
     document.getElementById("questions").innerHTML = "";
 }
 
-// Function to Display Questions Based on Selected Category
+
 function displayQuestions() {
     const category = document.getElementById("categorySelect").value;
     const questionsList = document.getElementById("questionsList");
@@ -133,7 +133,7 @@ function displayQuestions() {
     }
 }
 
-// Function to Handle User Questions
+
 function askQuestion() {
     const questionInput = document.getElementById("userQuestion");
     const questionText = questionInput.value.trim();
@@ -152,14 +152,14 @@ function askQuestion() {
     }
 }
 
-// Function to Select a Question
+
 function selectQuestion(question) {
     selectedQuestion = question;
     document.getElementById("selectedQuestionText").textContent = question;
     document.getElementById("selectedQuestionSection").classList.remove("hidden");
 }
 
-// Function to Submit an Answer
+
 function submitAnswer() {
     const answerInput = document.getElementById("userAnswer").value.trim();
 
