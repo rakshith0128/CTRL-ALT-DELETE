@@ -8,10 +8,10 @@ function login() {
     const validPassword = "password123";
   
     if (username === validUsername && password === validPassword) {
-      // Redirect to the main page if login is successful
+      
       window.location.href = "webpage.html";
     } else {
-      // Display an error message
+
       errorMessage.textContent = "Invalid username or password. Please try again.";
     }
   }
